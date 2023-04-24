@@ -1,56 +1,51 @@
 package Cards;
 import java.util.ArrayList;
+import java.util.ListIterator;
 import java.util.Random;
 
 public class CardsPile {
-    private ArrayList<UV> listOfCard=new ArrayList<UV>() ;
+    private ArrayList<UV> listOfCard=null;
 
     public CardsPile(){
-        this.listOfCard=null;
+        this.listOfCard= new ArrayList<UV>();
     }
     public CardsPile(int numberOfCards){
-        this.listOfCard=null;
+        this.listOfCard= new ArrayList<UV>();
         for(int i=0;i<numberOfCards/4;i++){
-            generateTS();
-            generateTM();
-            generateT2S();
-            generateEC();
+            listOfCard.add(new CS());
+            listOfCard.add(new TM());
+            listOfCard.add(new T2S());
+            listOfCard.add(new EC());
         }
-    }
-    public TS generateTS(){
-        Random rand=new Random();
-        String letters= String.valueOf((char)(rand.nextInt(26)+97)+(char)(rand.nextInt(26)+97));
-        return new TS(letters + rand.nextInt(100),6);
-    }
-    public TM generateTM(){
-        int credits=0;
-        Random rand=new Random();
-        if(rand.nextInt(2)==0){
-            credits=6;
-        }else{
-            credits=4;
-        }
-        String letters= String.valueOf((char)(rand.nextInt(26)+97)+(char)(rand.nextInt(26)+97));
-        return new TM(letters + rand.nextInt(100),credits);
-    }
-    public T2S generateT2S(){
-        Random rand=new Random();
-        String letters= String.valueOf((char)(rand.nextInt(26)+97)+(char)(rand.nextInt(26)+97));
-        return new T2S(letters + rand.nextInt(100), rand.nextInt(5));
-
-    }
-    public EC generateEC(){
-        Random rand=new Random();
-        String letters= String.valueOf((char)(rand.nextInt(26)+97)+(char)(rand.nextInt(26)+97));
-        return new EC(letters + rand.nextInt(100), rand.nextInt(5));
-
     }
 
 
     public ArrayList<UV> getListOfCard() {
         return listOfCard;
     }
-    public UV getFirstCard(){
-        return listOfCard.get(0);
+    public UV getACard(int position){
+        return listOfCard.get(position-1);
+    }
+    public void mixPile(){
+        ArrayList<UV> newListOfCards=new ArrayList<UV>();
+        Random rand=new Random();
+        int position=0;
+
+        while(listOfCard.size()>0){
+        position=rand.nextInt(listOfCard.size());
+        newListOfCards.add(listOfCard.get(position));
+        listOfCard.remove(listOfCard.get(position));
+        }
+        listOfCard=newListOfCards;// does this well tranfer one list in another one ?
+    }
+    public void displayPile(){
+        if(listOfCard.isEmpty()){
+            System.out.println("The list is empty");
+        }else{
+            ListIterator<UV> i=listOfCard.listIterator();
+            while(i.hasNext()){
+                System.out.println(i.next());
+            }
+        }
     }
 }

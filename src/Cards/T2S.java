@@ -1,10 +1,18 @@
 package Cards;
 
+import java.util.Random;
+
 public class T2S extends UV{
     public T2S(){
-        super();
+        super(generateName(),generateCredits());
     }
-    public T2S(String n,int c){
-        super( n, c);
+
+    private static int generateCredits(){
+        Random rand=new Random();
+        return rand.nextInt(5);
+    }
+    private static String generateName() {
+        Random rand = new Random();
+        return "HI" + String.format("%02d", rand.nextInt(30));
     }
 }

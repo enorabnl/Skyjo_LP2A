@@ -28,4 +28,8 @@ public class UV {
     public void makeVisible() {
         this.visible=true;
     }
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }

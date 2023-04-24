@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ba2e0f5-c51c-4b88-8e33-56f81b0521fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Cards/EC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Cards/T2S.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Cards/TM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cards/CardsPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cards/CardsPile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cards/EC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cards/EC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cards/T2S.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cards/T2S.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cards/TM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cards/TM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cards/TS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cards/CS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cards/UV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cards/UV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +43,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/Users/enora/Documents/1 UTBM/TC4/LP2A/Skyjo_LP2A",
     "node.js.detected.package.eslint": "true",
@@ -57,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1681915817578</updated>
       <workItem from="1681915819250" duration="1147000" />
-      <workItem from="1682337881385" duration="3986000" />
+      <workItem from="1682337881385" duration="9585000" />
     </task>
     <servers />
   </component>
