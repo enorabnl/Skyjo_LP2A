@@ -1,4 +1,7 @@
 package Cards;
+import Players.Grid;
+import Players.Player;
+
 import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.Random;
@@ -36,7 +39,7 @@ public class CardsPile {
         newListOfCards.add(listOfCard.get(position));
         listOfCard.remove(listOfCard.get(position));
         }
-        listOfCard=newListOfCards;// does this well tranfer one list in another one ?
+        listOfCard=newListOfCards;
     }
     public void displayPile(){
         if(listOfCard.isEmpty()){
@@ -45,6 +48,26 @@ public class CardsPile {
             ListIterator<UV> i=listOfCard.listIterator();
             while(i.hasNext()){
                 System.out.println(i.next());
+            }
+        }
+    }
+    public UV drawACard(){
+       /* for (UV c:listOfCard) {
+            System.out.println(c);
+
+        }*/
+        UV topCard=listOfCard.get(0);
+        listOfCard.remove(listOfCard.get(0));
+        return topCard;
+    }
+    public void distribute(Player... Players){//indetermined number of arguments
+        for(Player p: Players){
+            Grid grid=p.getGrid();
+            for(int line=0;line< grid.getGrid().length;line++){
+                for(int column=0;column<grid.getGrid()[line].length;column++){
+                    grid.getGrid()[line][column]=this.drawACard();
+                }
+
             }
         }
     }

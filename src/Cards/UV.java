@@ -30,6 +30,6 @@ public class UV {
     }
     @Override
     public String toString() {
-        return this.getName();
+        return "Name : "+ this.getName()+" Category : "+ this.getClass().getSimpleName()+" Credits : "+getCredits();
     }
 }

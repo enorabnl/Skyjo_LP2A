@@ -9,7 +9,7 @@ public class T2S extends UV{
 
     private static int generateCredits(){
         Random rand=new Random();
-        return rand.nextInt(5);
+        return rand.nextInt(4)+1;
     }
     private static String generateName() {
         Random rand = new Random();
