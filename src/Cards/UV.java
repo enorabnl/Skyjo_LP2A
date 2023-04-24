@@ -2,13 +2,15 @@ package Cards;
 
 public class UV {
     private String name;
-    private String category;
     private int credits;
     private boolean visible;
-
-    public UV (String name,String category,int credits) {
+    public UV(){
+        this.name=null;
+        this.credits=0;
+        this.visible=false;
+    }
+    public UV (String name,int credits) {
         this.name=name;
-        this.category=category;
         this.credits=credits;
         this.visible=false;
 
@@ -16,9 +18,6 @@ public class UV {
 
     public String getName() {
         return this.name;
-    }
-    public String getCategory() {
-        return this.category;
     }
     public int getCredits () {
         return this.credits;

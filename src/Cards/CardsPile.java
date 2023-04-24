@@ -2,21 +2,22 @@ package Cards;
 import java.util.ArrayList;
 
 public class CardsPile {
-    private int numberOfCards;
     private ArrayList<UV> listOfCard=new ArrayList<UV>() ;
 
     public CardsPile(){
-        this.numberOfCards=0;
         this.listOfCard=null;
     }
+    public CardsPile(int numberOfCards){
+        this.listOfCard=null;
 
-    public CardsPile (int numberOfCards){
-        this.numberOfCards=numberOfCards;
+        for(int i=0;i<numberOfCards/4;i++){
+            TS newCard = new TS("PM23",3);
+            listOfCard.add(newCard);
+        }
+
     }
 
-    public int getNumberOfCards() {
-        return numberOfCards;
-    }
+
 
     public ArrayList<UV> getListOfCard() {
         return listOfCard;
