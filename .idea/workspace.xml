@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b41972c1-b2b5-4ecf-9ec7-dd12f156f1f3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Cards/CS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Cards/CardsPile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Cards/Deck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Cards/EC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Cards/T2S.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Cards/TM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Cards/UV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Players/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Players/Grid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Players/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Players/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/testjavafx/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/testjavafx/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/testjavafx/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/testjavafx/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +44,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/enora/Documents/1 UTBM/TC4/LP2A/copie",
+    "last_opened_file_path": "C:/Users/enora/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Scene Builder/SceneBuilder.lnk",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
