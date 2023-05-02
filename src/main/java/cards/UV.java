@@ -1,4 +1,4 @@
-package Cards;
+package cards;
 
 public class UV {
     private String name;
@@ -28,7 +28,7 @@ public class UV {
     public void makeVisible() {
         this.visible=true;
     }
-    @Override
+
     public String toString() {
         return "Name : "+ this.getName()+" Category : "+ this.getClass().getSimpleName()+" Credits : "+getCredits();
     }

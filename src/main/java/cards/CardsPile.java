@@ -1,6 +1,6 @@
-package Cards;
-import Players.Grid;
-import Players.Player;
+package cards;
+import players.Grid;
+import players.Player;
 
 import java.util.ArrayList;
 import java.util.ListIterator;
@@ -11,10 +11,7 @@ public class CardsPile {
 
     public CardsPile(){
         this.listOfCard= new ArrayList<UV>();
-    }
-    public CardsPile(int numberOfCards){
-        this.listOfCard= new ArrayList<UV>();
-        for(int i=0;i<numberOfCards/4;i++){
+        for(int i=0;i<150/4;i++){
             listOfCard.add(new CS());
             listOfCard.add(new TM());
             listOfCard.add(new T2S());
@@ -22,12 +19,14 @@ public class CardsPile {
         }
     }
 
-
     public ArrayList<UV> getListOfCard() {
         return listOfCard;
     }
     public UV getACard(int position){
-        return listOfCard.get(position-1);
+        if(position<1){
+            return null;
+        }else{
+        return listOfCard.get(position-1);}
     }
     public void mixPile(){
         ArrayList<UV> newListOfCards=new ArrayList<UV>();
@@ -45,9 +44,11 @@ public class CardsPile {
         if(listOfCard.isEmpty()){
             System.out.println("The list is empty");
         }else{
-            ListIterator<UV> i=listOfCard.listIterator();
-            while(i.hasNext()){
-                System.out.println(i.next());
+            int i=0;
+            for (UV c:listOfCard) {
+                i++;
+                System.out.println(i+ c.toString());
+
             }
         }
     }
@@ -60,16 +61,6 @@ public class CardsPile {
         listOfCard.remove(listOfCard.get(0));
         return topCard;
     }
-    public void distribute(Player... Players){//indetermined number of arguments
-        for(Player p: Players){
-            Grid grid=p.getGrid();
-            for(int line=0;line< grid.getGrid().length;line++){
-                for(int column=0;column<grid.getGrid()[line].length;column++){
-                    grid.getGrid()[line][column]=this.drawACard();
-                }
 
-            }
-        }
-    }
 
 }

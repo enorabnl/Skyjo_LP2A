@@ -1,4 +1,4 @@
-package Players;
+package players;
 
 public class Student {
     private int studentId;
