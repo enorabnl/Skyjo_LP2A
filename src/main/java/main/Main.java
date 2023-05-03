@@ -1,10 +1,6 @@
 package main;
 
-import cards.CardsPile;
-import cards.TM;
-import cards.UV;
-import players.Game;
-import players.Player;
+import skyjo.Game;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,7 +1,9 @@
-package players;
+package skyjo;
 
 import cards.CardsPile;
 import cards.Deck;
+import players.Grid;
+import players.Player;
 
 import java.util.Random;
 import java.util.ArrayList;
