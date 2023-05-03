@@ -8,25 +8,25 @@ import players.Player;
 import java.util.Random;
 import java.util.ArrayList;
 
-public class Game {
+public class SetUp {
     private int numberOfPlayers;
     private ArrayList<Player> listOfPlayers;
     private final CardsPile pile;//not going to change after run time
 
 
     // CONTRUCTORS
-    public Game(){
+    public SetUp(){
         this.numberOfPlayers=2;
         this.pile=new CardsPile();
         this.listOfPlayers=new ArrayList<Player>();
     }
-    public Game(int nbPlayers){
+    public SetUp(int nbPlayers){
         this.numberOfPlayers=nbPlayers;
         this.pile=new CardsPile();
         this.listOfPlayers=new ArrayList<Player>();
         for(int i=0;i<nbPlayers;i++){
             //System.out.println("Entrez le pseudo du joueur "+(i+1)+"\n");
-            listOfPlayers.add(new Player(4433,"player"+i));
+            listOfPlayers.add(new Player("player"+i));
         }
     }
 

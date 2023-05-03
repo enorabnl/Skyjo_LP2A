@@ -3,6 +3,8 @@ package players;
 public class Player {
     private Student data;
     private Grid grid;
+
+    // Constructors
     public Player(){
         this.data=new Student();
         this.grid=new Grid();
@@ -11,23 +13,28 @@ public class Player {
         this.data=data;
         this.grid=new Grid();
     }
-    public Player(int id, String pseudo){
-        this.data=new Student(id,pseudo);
+    public Player(String pseudo){
+        this.data=new Student(pseudo);
         this.grid=new Grid();
     }
 
+    //getters & setters
     public Grid getGrid() {
         return grid;
     }
-    public Student getData() {
-        return data;
-    }
-
     public void setGrid(Grid grid) {
         this.grid = grid;
+    }
+
+    public Student getData() {
+        return data;
     }
 
     public void setData(Student data) {
         this.data = data;
     }
+
+    // Methods
+
+    
 }

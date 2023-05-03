@@ -1,40 +1,36 @@
 package players;
 
+import java.util.Random;
+
 public class Student {
-    private int studentId;
+    final private int studentId;
     private String pseudo;
 
-    public Student(int id, String pseudo) {
-        this.studentId=id;
-        this.pseudo=pseudo;
-
-    }
+    // Constructors
     public Student() {
-        this.studentId=0;
-        this.pseudo=null;
-    }
-    public Student(int id) {
-        this.studentId=id;
+        Random id=new Random();
+        this.studentId=id.nextInt(1000);
         this.pseudo=null;
     }
     public Student(String pseudo) {
-        this.studentId=0;
+        Random id=new Random();
+        this.studentId=id.nextInt(1000);
         this.pseudo=pseudo;
     }
 
-
+    // getters & setters
     public int getStudentId() {
         return this.studentId;
     }
     public String getPseudo() {
         return this.pseudo;
     }
-    public void setStudentId(int id) {
-        this.studentId=id;
-    }
     public void setPseudo(String pseudo) {
         this.pseudo=pseudo;
     }
-
+    // Methods
+    public String toString() {
+        return "ID : "+getStudentId()+" Pseudo : "+getPseudo()+"\n";
+    }
 
 }

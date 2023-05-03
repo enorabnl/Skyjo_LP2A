@@ -1,10 +1,10 @@
 package main;
 
-import skyjo.Game;
+import skyjo.SetUp;
 
 public class Main {
     public static void main(String[] args) {
-        Game game=new Game(2);
+        SetUp game=new SetUp(2);
         game.getPile().displayPile();
         game.distributeCards();
         System.out.println("\n hands\n");
