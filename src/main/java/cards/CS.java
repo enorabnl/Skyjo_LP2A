@@ -7,12 +7,10 @@ public class CS extends UV{
         super(generateName(),6);
     }
 
-    @Override
-    public String getName() {
-        return super.getName();
-    }
-
-
+    /**
+     * Generate a name while respecting some conventions
+     * @return the name which has been generated
+     */
     private static String generateName() {
         Random rand = new Random();
         String[] lettres = {"M", "P", "R"};

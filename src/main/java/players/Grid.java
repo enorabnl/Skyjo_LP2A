@@ -9,9 +9,12 @@ public class Grid {
     public UV[][] getGrid() {
         return grid;
     }
+    public void makeACardVisible(int line, int column){
+        grid[line][column].makeVisible();
+    }
     public void displayGrid(){
-        for(int line=0;line<getGrid().length;line++){
-            for(int column=0;column<getGrid()[line].length;column++){
+        for(int line=0;line<3;line++){
+            for(int column=0;column<4;column++){
                 System.out.println(getGrid()[line][column].toString());
             }
         }
@@ -24,15 +27,16 @@ public class Grid {
      */
     public boolean isGridVisible(){
         int line=0;
-        int column=0;
-        // we use a while loop because it permits to stop broswing at the time we find an hiden card
-        while(line<getGrid().length){
+        int column;
+        // we use a while loop because it permits to stop broswing at the time we find a hiden card
+
+        do{
             column=0;
-            while(column<getGrid()[line].length && getGrid()[line][column].isVisible() ){
+            while(column<4 && getGrid()[line][column].isVisible()){
                 column++;
             }
             line++;
-        }
+        }while(line<3 && getGrid()[line-1][column].isVisible());
         return getGrid()[line][column].isVisible();
     }
     public UV getCardWithPosition(int line, int column){

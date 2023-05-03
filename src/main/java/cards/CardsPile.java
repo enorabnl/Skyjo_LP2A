@@ -9,9 +9,16 @@ import java.util.Random;
 public class CardsPile {
     private ArrayList<UV> listOfCard=null;
 
+
+    // CONSTRUCTORS
+
+
+    /**
+     * @brief the default constructor generate 152 cards with the quantity of each category
+     */
     public CardsPile(){
         this.listOfCard= new ArrayList<UV>();
-        for(int i=0;i<150/4;i++){
+        for(int i=0;i<152/4;i++){
             listOfCard.add(new CS());
             listOfCard.add(new TM());
             listOfCard.add(new T2S());
@@ -19,6 +26,8 @@ public class CardsPile {
         }
     }
 
+
+    // GETTERS & SETTERS
     public ArrayList<UV> getListOfCard() {
         return listOfCard;
     }
@@ -28,6 +37,13 @@ public class CardsPile {
         }else{
         return listOfCard.get(position-1);}
     }
+
+
+    // METHODS
+
+    /**
+     * @brief this method mix the pile by adding randomly each card of the initial pile to a new one
+     */
     public void mixPile(){
         ArrayList<UV> newListOfCards=new ArrayList<UV>();
         Random rand=new Random();
@@ -40,6 +56,10 @@ public class CardsPile {
         }
         listOfCard=newListOfCards;
     }
+
+    /**
+     * TEEESSSSTTTTT
+     */
     public void displayPile(){
         if(listOfCard.isEmpty()){
             System.out.println("The list is empty");
@@ -52,10 +72,14 @@ public class CardsPile {
             }
         }
     }
+
+    /**
+     *
+     * @return the drawn UV
+     */
     public UV drawACard(){
        /* for (UV c:listOfCard) {
             System.out.println(c);
-
         }*/
         UV topCard=listOfCard.get(0);
         listOfCard.remove(listOfCard.get(0));

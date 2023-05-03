@@ -3,16 +3,21 @@ package cards;
 import java.util.ArrayList;
 
 public class Deck extends CardsPile{
-    private ArrayList<UV> listOfCard=null;
 
+    // CONSTRUCTOR
     public Deck(){
-        listOfCard=new ArrayList<UV>();
+        super();
     }
+
+    /**
+     *
+     * @param uv to add to the deck
+     */
     public void addCard(UV uv){
         if (!uv.isVisible()){
             uv.makeVisible();
         }
-        listOfCard.add(uv);
+        getListOfCard().add(uv);
     }
 
 }
