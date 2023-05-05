@@ -1,4 +1,4 @@
-package com.example.testjavafx;
+package ui.pages;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
