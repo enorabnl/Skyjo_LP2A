@@ -36,5 +36,9 @@ public class Player {
 
     // Methods
 
-    
+
+
+    public String toString() {
+        return data.toString();
+    }
 }

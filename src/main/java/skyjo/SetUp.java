@@ -7,6 +7,7 @@ import players.Player;
 
 import java.util.Random;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class SetUp {
     private int numberOfPlayers;
@@ -16,17 +17,16 @@ public class SetUp {
 
     // CONTRUCTORS
     public SetUp(){
-        this.numberOfPlayers=2;
+        Scanner scanner = new Scanner(System.in);
         this.pile=new CardsPile();
         this.listOfPlayers=new ArrayList<Player>();
-    }
-    public SetUp(int nbPlayers){
-        this.numberOfPlayers=nbPlayers;
-        this.pile=new CardsPile();
-        this.listOfPlayers=new ArrayList<Player>();
-        for(int i=0;i<nbPlayers;i++){
-            //System.out.println("Entrez le pseudo du joueur "+(i+1)+"\n");
-            listOfPlayers.add(new Player("player"+i));
+        System.out.println("How many players ?");
+        int numberOfPlayers= scanner.nextInt();
+        this.numberOfPlayers=numberOfPlayers;
+        for(int i=0;i<numberOfPlayers;i++){
+            System.out.println("Enter the name of the player n°"+(i+1)+" :");
+            String playerName= scanner.nextLine();
+            listOfPlayers.add(new Player(playerName));
         }
     }
 
@@ -83,10 +83,12 @@ public class SetUp {
         return visible;
     }
     public void start(){
-        /*
-        Set up
-        */
-        Random i = new Random();
+        Scanner scanner = new Scanner(System.in);
+        Random rand = new Random();
+
+        for (Player p:listOfPlayers) {
+            System.out.println(p);
+        }
         //set listOf Players
         distributeCards();
         displayHands();
@@ -97,7 +99,7 @@ public class SetUp {
         deck.getListOfCard().add(getPile().drawACard());
 
         //We choose randomly the player who is going to start
-        Player startingPlayer = getListOfPlayers().get(i.nextInt(getNumberOfPlayers())-1);
+        //Player startingPlayer = getListOfPlayers().get(i.nextInt(getNumberOfPlayers())-1);
         /*
         piocher dans PILE -echanger-jeter la carte de la grille que l'on a échangé
         piocher dans PILE -jeter-retourner une carte de la grille
