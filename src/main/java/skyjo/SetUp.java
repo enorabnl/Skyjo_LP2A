@@ -6,6 +6,7 @@ import cards.UV;
 import players.Grid;
 import players.Player;
 
+import java.util.ListIterator;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -60,6 +61,14 @@ public class SetUp {
         return deck;
     }
 
+    public Player getCurentPlayer() {
+        return curentPlayer;
+    }
+
+    public void setCurentPlayer(Player p){
+        curentPlayer=p;
+    }
+
 
     // METHODS
     public void distributeCards(){
@@ -80,14 +89,15 @@ public class SetUp {
             System.out.println("\n");
         }
     }
-    public boolean isAGridVisible(){
+    public boolean isThereAWinner(){
         boolean visible=false;
         int i=0;
         do{
             Grid grid=getListOfPlayers().get(i).getGrid();
             visible=grid.isGridVisible();
             i++;
-        }while (!visible );
+            System.out.println(i);
+        }while (!visible && i<getListOfPlayers().size());
         return visible;
     }
     public void start(){
@@ -96,31 +106,37 @@ public class SetUp {
         distributeCards();
         discard.addCard(getPile().drawACard());
 
+        gameBoard();
+        int i =0;
+        do{
+            setCurentPlayer(getListOfPlayers().get(i));
+            currentHand();
+            chooseAction();
+            currentHand();
 
-        //Player startingPlayer = getListOfPlayers().get(i.nextInt(getNumberOfPlayers())-1);
-        /*
-        piocher dans deck -echanger-jeter la carte de la grille que l'on a échangé
-        piocher dans deck -jeter-retourner une carte de la grille
-         */
-        /*
-        piocher dans Discard - echanger - jeter la carte de la grille que l'on a échangé
-        piocher dans deck - echanger - jeter la carte de la grille que l'on a échangé
-        piocher dans deck - jeter - retourner une carte de la grille
-         */
-
+            if(getListOfPlayers().get(i+1)==null){
+                i=0;
+            }else{
+                i++;
+            }
+        }while(!isThereAWinner());
 
     }
     public void gameBoard(){
         displayHands();
         discard.displayDiscard();
-        System.out.println("deck :"+ deck.getACard(1).toString());
-
     }
+    public void currentHand(){
+        System.out.println(curentPlayer.toString());
+        curentPlayer.getGrid().displayGrid();
+        discard.displayDiscard();
+    }
+
     public void chooseAction(){
         Scanner scanner = new Scanner(System.in);
         int choice=0;
         do{
-            System.out.println("Possible actions :\nDraw in the deck (Enter 1)\nDraw in the discard (Enter2)");
+            System.out.println("\nPossible actions :\nDraw in the deck (Enter 1)\nDraw in the discard (Enter 2)");
             choice=scanner.nextInt();
         }while(choice!=1 && choice!=2);
 
@@ -134,9 +150,10 @@ public class SetUp {
         Scanner scanner=new Scanner(System.in);
         int choice=0;
         UV drawnCard=deck.drawACard();
+        drawnCard.makeVisible();
         System.out.println(drawnCard);
         do{
-            System.out.println("Possible actions :\nThrow the card (Enter 1)\nReplace a card of your grid (Enter2)");
+            System.out.println("Possible actions :\nThrow the card (Enter 1)\nReplace a card of your grid (Enter 2)");
             choice=scanner.nextInt();
         }while(choice!=1 && choice!=2);
 
@@ -148,7 +165,8 @@ public class SetUp {
     }
     public void drawInDiscard(){
         UV drawnCard=discard.drawACard();
-        System.out.println(drawnCard);
+        drawnCard.makeVisible();
+        System.out.println("You drawn : " + drawnCard);
         replaceACard(drawnCard);
     }
     public void replaceACard( UV card){
@@ -164,6 +182,20 @@ public class SetUp {
             column= scanner.nextInt();
         }while(column<1 || column>4);
         curentPlayer.getGrid().swapCardsGrid(card,line,column);
+    }
+    public void makeACardVisible(){
+        Scanner scanner=new Scanner(System.in);
+        int line=0;
+        int column=0;
+        do{
+            System.out.println("Enter the line of the card you want to turn over :");
+            line= scanner.nextInt();
+        }while(line<1 || line>3);
+        do{
+            System.out.println("Enter the column of the card you want to turn over :");
+            column= scanner.nextInt();
+        }while(column<1 || column>4);
+        curentPlayer.getGrid().getGrid()[line-1][column-1].makeVisible();
     }
 
 

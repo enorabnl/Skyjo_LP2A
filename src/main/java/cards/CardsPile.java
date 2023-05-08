@@ -81,8 +81,8 @@ public class CardsPile {
        /* for (UV c:listOfCard) {
             System.out.println(c);
         }*/
-        UV topCard=listOfCard.get(0);
-        listOfCard.remove(listOfCard.get(0));
+        UV topCard=listOfCard.get(listOfCard.size()-1);
+        listOfCard.remove(listOfCard.get(listOfCard.size()-1));
         return topCard;
     }
 

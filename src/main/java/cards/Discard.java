@@ -18,7 +18,7 @@ public class Discard extends CardsPile{
         getListOfCard().add(uv);
     }
     public void displayDiscard(){
-        System.out.println("Discard : "+getACard(getListOfCard().size()));
+        System.out.println("\nDiscard : "+getACard(getListOfCard().size()));
     }
 
 }

@@ -26,16 +26,18 @@ public class Grid {
     public boolean isGridVisible(){
         int line=0;
         int column;
+        boolean visible=true;
         // we use a while loop because it permits to stop broswing at the time we find a hiden card
 
         do{
             column=0;
-            while(column<4 && getGrid()[line][column].isVisible()){
+            do{
+                visible=getGrid()[line][column].isVisible();
                 column++;
-            }
+            }while(column<4 && visible);
             line++;
-        }while(line<3 && getGrid()[line-1][column].isVisible());
-        return getGrid()[line][column].isVisible();
+        }while(line<3 && visible);
+        return visible;
     }
     public UV getCardWithPosition(int line, int column){
         return getGrid()[line][column];
@@ -50,8 +52,8 @@ public class Grid {
      * @return the UV which is going to deck
      */
     public UV swapCardsGrid(UV cardsFromPile, int line, int column){
-        UV cardToDeck=getGrid()[line][column];
-        getGrid()[line][column]=cardsFromPile;
+        UV cardToDeck=getGrid()[line-1][column-1];
+        getGrid()[line-1][column-1]=cardsFromPile;
         return cardToDeck;
 
     }
