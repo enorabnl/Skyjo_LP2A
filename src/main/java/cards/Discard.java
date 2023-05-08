@@ -1,23 +1,24 @@
 package cards;
 
-import java.util.ArrayList;
-
-public class Deck extends CardsPile{
+public class Discard extends CardsPile{
 
     // CONSTRUCTOR
-    public Deck(){
+    public Discard(){
         super();
     }
 
     /**
      *
-     * @param uv to add to the deck
+     * @param uv to add to the discard
      */
     public void addCard(UV uv){
         if (!uv.isVisible()){
             uv.makeVisible();
         }
         getListOfCard().add(uv);
+    }
+    public void displayDiscard(){
+        System.out.println("Discard : "+getACard(getListOfCard().size()));
     }
 
 }

@@ -30,7 +30,12 @@ public class UV {
     }
 
     public String toString() {
-        return "Name : "+ this.getName()+" Category : "+ this.getClass().getSimpleName()+" Credits : "+getCredits();
+        if(isVisible()){
+            return this.getName()+" ("+getCredits()+" "+this.getClass().getSimpleName()+")";
+        }else{
+            return "XXXX";
+        }
+
     }
 
 }

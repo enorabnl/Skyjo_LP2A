@@ -14,9 +14,7 @@ public class Grid {
     }
     public void displayGrid(){
         for(int line=0;line<3;line++){
-            for(int column=0;column<4;column++){
-                System.out.println(getGrid()[line][column].toString());
-            }
+            System.out.println("| "+getGrid()[line][0].toString()+" | "+getGrid()[line][1].toString()+" | "+getGrid()[line][2].toString()+" | "+getGrid()[line][3].toString()+"|");
         }
 
     }
