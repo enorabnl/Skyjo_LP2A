@@ -1,15 +1,12 @@
 package skyjo;
 
 import cards.CardsPile;
-import cards.Coordonate;
-import cards.Discard;
+import cards.Coordonates;
+import cards.DiscardPile;
 import cards.UV;
 import players.Grid;
 import players.Player;
-import players.Quotas;
 
-import java.util.ListIterator;
-import java.util.Random;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,7 +14,7 @@ public class SetUp {
     private int numberOfPlayers;
     private ArrayList<Player> listOfPlayers;
     private final CardsPile deck;//not going to change after run time
-    private Discard discard=new Discard();
+    private DiscardPile discard=new DiscardPile();
     private Player currentPlayer;
 
 
@@ -28,7 +25,7 @@ public class SetUp {
         deck.mixPile();
         this.listOfPlayers=new ArrayList<Player>();
         int nbPlayers=0;
-        CardsPile discard=new Discard();
+        CardsPile discard=new DiscardPile();
 
         do{
             System.out.println("How many players ? (2 to 8 players)");
@@ -73,7 +70,7 @@ public class SetUp {
         discard.addCard(getPile().drawACard());
         displayGameBoard();
         int i =0;
-        /*do{
+        do{
             setCurrentPlayer(getListOfPlayers().get(i));
             displayHand(currentPlayer);
             chooseAction();
@@ -84,7 +81,7 @@ public class SetUp {
             }else{
                 i++;
             }
-        }while(!isAGridVisible());*/
+        }while(!isAGridVisible());
         displayEnd();
     }
     // METHODS----------------------------------(display)
@@ -136,7 +133,7 @@ public class SetUp {
     public ArrayList<Player> findWinners(){
         Player winner=listOfPlayers.get(0);
         ArrayList<Player> listOfWinner=new ArrayList<>();
-        for (int i=1;i<listOfPlayers.size()-1;i++){
+        for (int i=1;i<listOfPlayers.size();i++){
             int total=listOfPlayers.get(i).getQuotas().getTotal();
             if(winner.getQuotas().getTotal()<total){
                 winner=listOfPlayers.get(i);
@@ -221,7 +218,7 @@ public class SetUp {
         discard.addCard(currentPlayer.getGrid().swapCardsGrid(card,line,column));
     }
     public void makeACardVisible(){
-        Coordonate coordonate=new Coordonate(chooseCardToTurnOver().getLine(), chooseCardToTurnOver().getColumn());
+        Coordonates coordonate=new Coordonates(chooseCardToTurnOver().getLine(), chooseCardToTurnOver().getColumn());
 
         while(currentPlayer.getGrid().getGrid()[coordonate.getLine()][coordonate.getColumn()].isVisible()){
             System.out.println("This card is already visible, enter new coordonates");
@@ -229,7 +226,7 @@ public class SetUp {
         }
         currentPlayer.getGrid().getGrid()[coordonate.getLine()][coordonate.getColumn()].makeVisible();
     }
-    public Coordonate chooseCardToTurnOver(){
+    public Coordonates chooseCardToTurnOver(){
         Scanner scanner=new Scanner(System.in);
         int line=0;
         int column=0;
@@ -241,7 +238,7 @@ public class SetUp {
             System.out.println("Enter the column of the card you want to turn over :");
             column= scanner.nextInt();
         }while(column<1 || column>4);
-        return new Coordonate(line-1,column-1);
+        return new Coordonates(line-1,column-1);
     }
     
 }

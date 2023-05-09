@@ -1,9 +1,9 @@
 package cards;
 
-public class Discard extends CardsPile{
+public class DiscardPile extends CardsPile{
 
     // CONSTRUCTOR
-    public Discard(){
+    public DiscardPile(){
         super();
     }
 
@@ -18,7 +18,7 @@ public class Discard extends CardsPile{
         getListOfCard().add(uv);
     }
     public void displayDiscard(){
-        System.out.println("\nDiscard : "+getACard(getListOfCard().size())+"\n");
+        System.out.println("\nDiscard : "+getListOfCard().get(getListOfCard().size()-1)+"\n");
     }
 
 }
