@@ -1,7 +1,7 @@
 package skyjo;
 
 import cards.CardsPile;
-import cards.Coordonates;
+import cards.Coordinates;
 import cards.DiscardPile;
 import cards.UV;
 import players.Grid;
@@ -98,7 +98,7 @@ public class SetUp {
         }
     }
     public void displayHand(Player p){
-        System.out.println("Playing hand----------\nPlayer : "+p.toString());
+        System.out.println("\nPlaying hand----------\nPlayer : "+p.toString());
         displayPlayerQuotas(p);
         p.getGrid().displayGrid();
         discard.displayDiscard();
@@ -184,7 +184,7 @@ public class SetUp {
         int choice=0;
         UV drawnCard=deck.drawACard();
         drawnCard.makeVisible();
-        System.out.println(drawnCard);
+        System.out.println("Drawn card : "+drawnCard);
         do{
             System.out.println("Possible actions :\nThrow the card (Enter 1)\nReplace a card of your grid (Enter 2)");
             choice=scanner.nextInt();
@@ -218,15 +218,15 @@ public class SetUp {
         discard.addCard(currentPlayer.getGrid().swapCardsGrid(card,line,column));
     }
     public void makeACardVisible(){
-        Coordonates coordonate=new Coordonates(chooseCardToTurnOver().getLine(), chooseCardToTurnOver().getColumn());
+        Coordinates coordinate=new Coordinates(chooseCardToTurnOver().getLine(), chooseCardToTurnOver().getColumn());
 
-        while(currentPlayer.getGrid().getGrid()[coordonate.getLine()][coordonate.getColumn()].isVisible()){
-            System.out.println("This card is already visible, enter new coordonates");
-            coordonate=chooseCardToTurnOver();
+        while(currentPlayer.getGrid().getGrid()[coordinate.getLine()][coordinate.getColumn()].isVisible()){
+            System.out.println("This card is already visible, enter new coordinates");
+            coordinate=chooseCardToTurnOver();
         }
-        currentPlayer.getGrid().getGrid()[coordonate.getLine()][coordonate.getColumn()].makeVisible();
+        currentPlayer.getGrid().getGrid()[coordinate.getLine()][coordinate.getColumn()].makeVisible();
     }
-    public Coordonates chooseCardToTurnOver(){
+    public Coordinates chooseCardToTurnOver(){
         Scanner scanner=new Scanner(System.in);
         int line=0;
         int column=0;
@@ -238,7 +238,7 @@ public class SetUp {
             System.out.println("Enter the column of the card you want to turn over :");
             column= scanner.nextInt();
         }while(column<1 || column>4);
-        return new Coordonates(line-1,column-1);
+        return new Coordinates(line-1,column-1);
     }
     
 }

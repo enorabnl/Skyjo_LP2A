@@ -2,7 +2,6 @@ package cards;
 
 public class DiscardPile extends CardsPile{
 
-    // CONSTRUCTOR
     public DiscardPile(){
         super();
     }

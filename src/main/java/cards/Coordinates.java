@@ -1,9 +1,9 @@
 package cards;
 
-public class Coordonates {
+public class Coordinates {
     private int line;
     private int column;
-    public Coordonates(int l, int c){
+    public Coordinates(int l, int c){
         this.line=l;
         this.column=c;
     }
