@@ -1,6 +1,7 @@
 package skyjo;
 
 import cards.CardsPile;
+import cards.Coordonate;
 import cards.Discard;
 import cards.UV;
 import players.Grid;
@@ -188,6 +189,15 @@ public class SetUp {
         discard.addCard(curentPlayer.getGrid().swapCardsGrid(card,line,column));
     }
     public void makeACardVisible(){
+        Coordonate coordonate=new Coordonate(chooseCardToTurnOver().getLine(), chooseCardToTurnOver().getColumn());
+
+        while(curentPlayer.getGrid().getGrid()[coordonate.getLine()][coordonate.getColumn()].isVisible()){
+            System.out.println("This card is already visible, enter new coordonates");
+            coordonate=chooseCardToTurnOver();
+        }
+        curentPlayer.getGrid().getGrid()[coordonate.getLine()][coordonate.getColumn()].makeVisible();
+    }
+    public Coordonate chooseCardToTurnOver(){
         Scanner scanner=new Scanner(System.in);
         int line=0;
         int column=0;
@@ -199,7 +209,7 @@ public class SetUp {
             System.out.println("Enter the column of the card you want to turn over :");
             column= scanner.nextInt();
         }while(column<1 || column>4);
-        curentPlayer.getGrid().getGrid()[line-1][column-1].makeVisible();
+        return new Coordonate(line-1,column-1);
     }
 
 
