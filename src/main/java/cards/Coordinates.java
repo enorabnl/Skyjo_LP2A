@@ -1,8 +1,8 @@
 package cards;
 
 public class Coordinates {
-    private int line;
-    private int column;
+    private final int line;
+    private final int column;
     public Coordinates(int l, int c){
         this.line=l;
         this.column=c;
@@ -15,12 +15,5 @@ public class Coordinates {
         return column;
     }
 
-    public void setLine(int line) {
-        this.line = line;
-    }
-
-    public void setColumn(int column) {
-        this.column = column;
-    }
 }
 

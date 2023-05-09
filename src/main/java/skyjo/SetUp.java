@@ -204,29 +204,20 @@ public class SetUp {
         replaceACard(drawnCard);
     }
     public void replaceACard( UV card){
-        Scanner scanner=new Scanner(System.in);
-        int line=0;
-        int column=0;
-        do{
-            System.out.println("Enter the line of the card you want to replace :");
-            line= scanner.nextInt();
-        }while(line<1 || line>3);
-        do{
-            System.out.println("Enter the column of the card you want to replace :");
-            column= scanner.nextInt();
-        }while(column<1 || column>4);
-        discard.addCard(currentPlayer.getGrid().swapCardsGrid(card,line,column));
+        System.out.println("You chose to replace a card of your grid.");
+        discard.addCard(currentPlayer.getGrid().swapCardsGrid(card,chooseACard()));
     }
     public void makeACardVisible(){
-        Coordinates coordinate=new Coordinates(chooseCardToTurnOver().getLine(), chooseCardToTurnOver().getColumn());
+        System.out.println("You chose to turn over a card of your grid");
+        Coordinates coordinate=new Coordinates(chooseACard().getLine(), chooseACard().getColumn());
 
         while(currentPlayer.getGrid().getGrid()[coordinate.getLine()][coordinate.getColumn()].isVisible()){
             System.out.println("This card is already visible, enter new coordinates");
-            coordinate=chooseCardToTurnOver();
+            coordinate=chooseACard();
         }
         currentPlayer.getGrid().getGrid()[coordinate.getLine()][coordinate.getColumn()].makeVisible();
     }
-    public Coordinates chooseCardToTurnOver(){
+    public Coordinates chooseACard(){
         Scanner scanner=new Scanner(System.in);
         int line=0;
         int column=0;

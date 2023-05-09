@@ -1,5 +1,6 @@
 package players;
 
+import cards.Coordinates;
 import cards.TM;
 import cards.UV;
 
@@ -55,13 +56,12 @@ public class Grid {
      * @brief exchange a card from the gird at a given position (line, column) with a card from a pile
      * "cardToDeck permits to store the card from the grid we want to throw
      * @param cardsFromPile
-     * @param line
-     * @param column
+     * @param position
      * @return the UV which is going to deck
      */
-    public UV swapCardsGrid(UV cardsFromPile, int line, int column){
-        UV cardToDeck=getGrid()[line-1][column-1];
-        getGrid()[line-1][column-1]=cardsFromPile;
+    public UV swapCardsGrid(UV cardsFromPile, Coordinates position){
+        UV cardToDeck=getGrid()[position.getLine()-1][position.getColumn()-1];
+        getGrid()[position.getLine()-1][position.getColumn()-1]=cardsFromPile;
         return cardToDeck;
 
     }
