@@ -6,6 +6,7 @@ import cards.Discard;
 import cards.UV;
 import players.Grid;
 import players.Player;
+import players.Quotas;
 
 import java.util.ListIterator;
 import java.util.Random;
@@ -90,7 +91,7 @@ public class SetUp {
             System.out.println("\n");
         }
     }
-    public boolean isThereAWinner(){
+    public boolean isAGridVisible(){
         boolean visible=false;
         int i=0;
         do{
@@ -119,7 +120,17 @@ public class SetUp {
             }else{
                 i++;
             }
-        }while(!isThereAWinner());
+        }while(!isAGridVisible());
+
+
+    }
+    public void displayQuotasAndWinner(){
+        Player winner
+        for (Player p:listOfPlayers) {
+            p.getGrid().makeTheGridVisible();
+            Quotas quotas=p.getGrid().countCredits();
+            System.out.println(quotas.toString());
+        }
 
     }
     public void gameBoard(){
@@ -211,7 +222,5 @@ public class SetUp {
         }while(column<1 || column>4);
         return new Coordonate(line-1,column-1);
     }
-
-
-
+    
 }

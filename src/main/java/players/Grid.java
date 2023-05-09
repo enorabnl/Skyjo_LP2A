@@ -1,5 +1,6 @@
 package players;
 
+import cards.TM;
 import cards.UV;
 
 public class Grid {
@@ -11,6 +12,13 @@ public class Grid {
     }
     public void makeACardVisible(int line, int column){
         grid[line][column].makeVisible();
+    }
+    public void makeTheGridVisible(){
+        for(int i=0;i<3;i++){
+            for(int j=0;j<4;j++){
+                makeACardVisible(i,j);
+            }
+        }
     }
     public void displayGrid(){
         for(int line=0;line<3;line++){
@@ -57,4 +65,33 @@ public class Grid {
         return cardToDeck;
 
     }
+    public Quotas countCredits(){
+        int CSCredits=0;
+        int TMCredits=0;
+        int ECCredits=0;
+        int T2SCredits=0;
+        for(int i=0;i<3;i++){
+            for(int j=0;j<4;j++){
+                UV card=getGrid()[i][j];
+                if(card.getClass().getSimpleName().equals("CS")){
+                    if(card.isVisible()){
+                        CSCredits+=card.getCredits();
+                    }
+                } else if (card.getClass().getSimpleName().equals("TM")) {
+                    if(card.isVisible()){
+                        TMCredits+=card.getCredits();
+                    }
+                } else if (card.getClass().getSimpleName().equals("EC")) {
+                    if(card.isVisible()){
+                        ECCredits+=card.getCredits();
+                    }
+                }else{
+                    if(card.isVisible()){
+                        T2SCredits+=card.getCredits();
+                    }                }
+            }
+        }
+        return new Quotas(CSCredits,TMCredits,ECCredits,T2SCredits);
+    }
+
 }
