@@ -96,7 +96,6 @@ public class SetUp {
             Grid grid=getListOfPlayers().get(i).getGrid();
             visible=grid.isGridVisible();
             i++;
-            System.out.println(i);
         }while (!visible && i<getListOfPlayers().size());
         return visible;
     }
@@ -110,11 +109,11 @@ public class SetUp {
         int i =0;
         do{
             setCurentPlayer(getListOfPlayers().get(i));
-            currentHand();
+            playingHand();
             chooseAction();
-            currentHand();
+            playingHand();
 
-            if(getListOfPlayers().get(i+1)==null){
+            if(i== listOfPlayers.size()-1){
                 i=0;
             }else{
                 i++;
@@ -126,10 +125,14 @@ public class SetUp {
         displayHands();
         discard.displayDiscard();
     }
-    public void currentHand(){
-        System.out.println(curentPlayer.toString());
+    public void playingHand(){
+        System.out.println("Playing hand----------\nPlayer : "+curentPlayer.toString());
         curentPlayer.getGrid().displayGrid();
         discard.displayDiscard();
+    }
+    public void newGrid(){
+        System.out.println("New grid--------------\nPlayer : "+curentPlayer.toString());
+        curentPlayer.getGrid().displayGrid();
     }
 
     public void chooseAction(){
@@ -159,6 +162,7 @@ public class SetUp {
 
         if(choice==1){
             discard.addCard(drawnCard);
+            makeACardVisible();
         }else {
             replaceACard(drawnCard);
         }
@@ -181,7 +185,7 @@ public class SetUp {
             System.out.println("Enter the column of the card you want to replace :");
             column= scanner.nextInt();
         }while(column<1 || column>4);
-        curentPlayer.getGrid().swapCardsGrid(card,line,column);
+        discard.addCard(curentPlayer.getGrid().swapCardsGrid(card,line,column));
     }
     public void makeACardVisible(){
         Scanner scanner=new Scanner(System.in);
