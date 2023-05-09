@@ -73,9 +73,9 @@ public class SetUp {
         discard.addCard(getPile().drawACard());
         displayGameBoard();
         int i =0;
-        do{
+        /*do{
             setCurrentPlayer(getListOfPlayers().get(i));
-            displayPlayingHand();
+            displayHand(currentPlayer);
             chooseAction();
             displayNewGrid();
 
@@ -84,8 +84,8 @@ public class SetUp {
             }else{
                 i++;
             }
-        }while(!isAGridVisible());
-
+        }while(!isAGridVisible());*/
+        displayEnd();
     }
     // METHODS----------------------------------(display)
     public void displayGameBoard(){
@@ -100,13 +100,13 @@ public class SetUp {
             System.out.println("\n");
         }
     }
-    public void displayPlayingHand(){
-        System.out.println("Playing hand----------\nPlayer : "+currentPlayer.toString());
-        displayCurrentPlayerQuotas(currentPlayer);
-        currentPlayer.getGrid().displayGrid();
+    public void displayHand(Player p){
+        System.out.println("Playing hand----------\nPlayer : "+p.toString());
+        displayPlayerQuotas(p);
+        p.getGrid().displayGrid();
         discard.displayDiscard();
     }
-    public void displayCurrentPlayerQuotas(Player p){
+    public void displayPlayerQuotas(Player p){
         System.out.println(p.getQuotas().toString());
     }
     public void displayNewGrid(){
@@ -114,15 +114,39 @@ public class SetUp {
         currentPlayer.getGrid().displayGrid();
     }
     public void displayEnd(){
+        System.out.println("----------The game is done !----------\n");
         for (Player p:listOfPlayers) {
             p.getGrid().makeTheGridVisible();
-            displayCurrentPlayerQuotas(p);
+            displayHand(p);
+            displayPlayerQuotas(p);
+            displayWinners();
         }
     }
-
-
-  
+    public void displayWinners(){
+        if(findWinners().size()>1){
+            System.out.println("The winners are : ");
+        }else{
+            System.out.println("The winners is : ");
+        }
+        for (Player p:findWinners()) {
+            System.out.println(p.getData().toString());
+        }
+    }
     //----------------------------------------------------
+    public ArrayList<Player> findWinners(){
+        Player winner=listOfPlayers.get(0);
+        ArrayList<Player> listOfWinner=new ArrayList<>();
+        for (int i=1;i<listOfPlayers.size()-1;i++){
+            int total=listOfPlayers.get(i).getQuotas().getTotal();
+            if(winner.getQuotas().getTotal()<total){
+                winner=listOfPlayers.get(i);
+            } else if (winner.getQuotas().getTotal()==total) {
+                listOfWinner.add(listOfPlayers.get(i));
+            }
+        }
+        listOfPlayers.add(winner);
+        return listOfWinner;
+    }
     public void distributeCards(){
         for(Player p: listOfPlayers){
             Grid grid=p.getGrid();
