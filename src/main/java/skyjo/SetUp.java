@@ -18,7 +18,7 @@ public class SetUp {
     private ArrayList<Player> listOfPlayers;
     private final CardsPile deck;//not going to change after run time
     private Discard discard=new Discard();
-    private Player curentPlayer;
+    private Player currentPlayer;
 
 
     // CONTRUCTORS
@@ -41,7 +41,7 @@ public class SetUp {
             String playerName= scanner.next();
             listOfPlayers.add(new Player(playerName));
         }
-        curentPlayer=getListOfPlayers().get(0);
+        currentPlayer=getListOfPlayers().get(0);
     }
 
 
@@ -49,7 +49,6 @@ public class SetUp {
     public int getNumberOfPlayers(){
         return numberOfPlayers;
     }
-
     public void setNumberOfPlayers(int numberOfPlayers) {
         this.numberOfPlayers = numberOfPlayers;
     }
@@ -62,17 +61,68 @@ public class SetUp {
     public CardsPile getPile() {
         return deck;
     }
-
-    public Player getCurentPlayer() {
-        return curentPlayer;
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+    public void setCurrentPlayer(Player p){
+        currentPlayer=p;
     }
 
-    public void setCurentPlayer(Player p){
-        curentPlayer=p;
+    public void start(){
+        distributeCards();
+        discard.addCard(getPile().drawACard());
+        displayGameBoard();
+        int i =0;
+        do{
+            setCurrentPlayer(getListOfPlayers().get(i));
+            displayPlayingHand();
+            chooseAction();
+            displayNewGrid();
+
+            if(i== listOfPlayers.size()-1){
+                i=0;
+            }else{
+                i++;
+            }
+        }while(!isAGridVisible());
+
+    }
+    // METHODS----------------------------------(display)
+    public void displayGameBoard(){
+        displayHands();
+        discard.displayDiscard();
+    }
+    public void displayHands(){
+        for (Player p:listOfPlayers) {
+            Grid grid=p.getGrid();
+            System.out.println(p.getData().toString());
+            grid.displayGrid();
+            System.out.println("\n");
+        }
+    }
+    public void displayPlayingHand(){
+        System.out.println("Playing hand----------\nPlayer : "+currentPlayer.toString());
+        displayCurrentPlayerQuotas(currentPlayer);
+        currentPlayer.getGrid().displayGrid();
+        discard.displayDiscard();
+    }
+    public void displayCurrentPlayerQuotas(Player p){
+        System.out.println(p.getQuotas().toString());
+    }
+    public void displayNewGrid(){
+        System.out.println("New grid--------------\nPlayer : "+currentPlayer.toString());
+        currentPlayer.getGrid().displayGrid();
+    }
+    public void displayEnd(){
+        for (Player p:listOfPlayers) {
+            p.getGrid().makeTheGridVisible();
+            displayCurrentPlayerQuotas(p);
+        }
     }
 
 
-    // METHODS
+  
+    //----------------------------------------------------
     public void distributeCards(){
         for(Player p: listOfPlayers){
             Grid grid=p.getGrid();
@@ -83,14 +133,7 @@ public class SetUp {
             }
         }
     }
-    public void displayHands(){
-        for (Player p:listOfPlayers) {
-            Grid grid=p.getGrid();
-            System.out.println(p.getData().toString());
-            grid.displayGrid();
-            System.out.println("\n");
-        }
-    }
+    
     public boolean isAGridVisible(){
         boolean visible=false;
         int i=0;
@@ -101,52 +144,6 @@ public class SetUp {
         }while (!visible && i<getListOfPlayers().size());
         return visible;
     }
-    public void start(){
-        Random rand = new Random();
-
-        distributeCards();
-        discard.addCard(getPile().drawACard());
-
-        gameBoard();
-        int i =0;
-        do{
-            setCurentPlayer(getListOfPlayers().get(i));
-            playingHand();
-            chooseAction();
-            playingHand();
-
-            if(i== listOfPlayers.size()-1){
-                i=0;
-            }else{
-                i++;
-            }
-        }while(!isAGridVisible());
-
-
-    }
-    public void displayQuotasAndWinner(){
-        Player winner
-        for (Player p:listOfPlayers) {
-            p.getGrid().makeTheGridVisible();
-            Quotas quotas=p.getGrid().countCredits();
-            System.out.println(quotas.toString());
-        }
-
-    }
-    public void gameBoard(){
-        displayHands();
-        discard.displayDiscard();
-    }
-    public void playingHand(){
-        System.out.println("Playing hand----------\nPlayer : "+curentPlayer.toString());
-        curentPlayer.getGrid().displayGrid();
-        discard.displayDiscard();
-    }
-    public void newGrid(){
-        System.out.println("New grid--------------\nPlayer : "+curentPlayer.toString());
-        curentPlayer.getGrid().displayGrid();
-    }
-
     public void chooseAction(){
         Scanner scanner = new Scanner(System.in);
         int choice=0;
@@ -197,16 +194,16 @@ public class SetUp {
             System.out.println("Enter the column of the card you want to replace :");
             column= scanner.nextInt();
         }while(column<1 || column>4);
-        discard.addCard(curentPlayer.getGrid().swapCardsGrid(card,line,column));
+        discard.addCard(currentPlayer.getGrid().swapCardsGrid(card,line,column));
     }
     public void makeACardVisible(){
         Coordonate coordonate=new Coordonate(chooseCardToTurnOver().getLine(), chooseCardToTurnOver().getColumn());
 
-        while(curentPlayer.getGrid().getGrid()[coordonate.getLine()][coordonate.getColumn()].isVisible()){
+        while(currentPlayer.getGrid().getGrid()[coordonate.getLine()][coordonate.getColumn()].isVisible()){
             System.out.println("This card is already visible, enter new coordonates");
             coordonate=chooseCardToTurnOver();
         }
-        curentPlayer.getGrid().getGrid()[coordonate.getLine()][coordonate.getColumn()].makeVisible();
+        currentPlayer.getGrid().getGrid()[coordonate.getLine()][coordonate.getColumn()].makeVisible();
     }
     public Coordonate chooseCardToTurnOver(){
         Scanner scanner=new Scanner(System.in);

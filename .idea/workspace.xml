@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b41972c1-b2b5-4ecf-9ec7-dd12f156f1f3" name="Changes" comment="set up">
-      <change afterPath="$PROJECT_DIR$/src/main/java/players/Quotas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/players/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/players/Grid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/players/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/skyjo/Actions.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/skyjo/SetUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/skyjo/SetUp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
