@@ -68,13 +68,16 @@ public class SetUp {
     public void start(){
         distributeCards();
         discard.addCard(getPile().drawACard());
-        displayGameBoard();
+        displayHands();
         int i =0;
         do{
             setCurrentPlayer(getListOfPlayers().get(i));
-            displayHand(currentPlayer);
+            currentPlayer.displayHand();
+            System.out.println(discard.toString());
             chooseAction();
-            displayNewGrid();
+            currentPlayer.setQuotas();
+            System.out.println("New grid-------------------");
+            currentPlayer.displayHand();
 
             if(i== listOfPlayers.size()-1){
                 i=0;
@@ -85,37 +88,18 @@ public class SetUp {
         displayEnd();
     }
     // METHODS----------------------------------(display)
-    public void displayGameBoard(){
-        displayHands();
-        discard.displayDiscard();
-    }
     public void displayHands(){
         for (Player p:listOfPlayers) {
             Grid grid=p.getGrid();
-            System.out.println(p.getData().toString());
-            grid.displayGrid();
+            p.displayHand();
             System.out.println("\n");
         }
-    }
-    public void displayHand(Player p){
-        System.out.println("\nPlaying hand----------\nPlayer : "+p.toString());
-        displayPlayerQuotas(p);
-        p.getGrid().displayGrid();
-        discard.displayDiscard();
-    }
-    public void displayPlayerQuotas(Player p){
-        System.out.println(p.getQuotas().toString());
-    }
-    public void displayNewGrid(){
-        System.out.println("New grid--------------\nPlayer : "+currentPlayer.toString());
-        currentPlayer.getGrid().displayGrid();
     }
     public void displayEnd(){
         System.out.println("----------The game is done !----------\n");
         for (Player p:listOfPlayers) {
             p.getGrid().makeTheGridVisible();
-            displayHand(p);
-            displayPlayerQuotas(p);
+            p.displayHand();
             displayWinners();
         }
     }
