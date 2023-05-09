@@ -2,7 +2,6 @@ package cards;
 import java.util.Random;
 
 public class CS extends UV{
-
     public CS(){
         super(generateName(),6);
     }
@@ -13,11 +12,8 @@ public class CS extends UV{
      */
     private static String generateName() {
         Random rand = new Random();
-        String[] lettres = {"M", "P", "R"};
-        String lettre = lettres[rand.nextInt(3)];
-        String name = lettre + String.valueOf((char)(rand.nextInt(26)+65)) + String.format("%02d", rand.nextInt(30));
-        return name;
+        String[] letters = {"M", "P", "R"};
+        String letter = letters[rand.nextInt(3)];
+        return letter + (char) (rand.nextInt(26) + 65) + String.format("%02d", rand.nextInt(30));
     }
-
-
 }

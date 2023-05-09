@@ -5,7 +5,12 @@ public class TM extends UV{
     public TM(){
         super(generateName(),generateCredits());
     }
-
+    private static String generateName() {
+        Random rand = new Random();
+        String[] letters = {"D", "T", "A"};
+        String letter = letters[rand.nextInt(3)];
+        return letter + (char) (rand.nextInt(26) + 65) + String.format("%02d", rand.nextInt(30));
+    }
     private static int generateCredits(){
         Random rand=new Random();
         if(rand.nextInt(2)==0){
@@ -13,13 +18,6 @@ public class TM extends UV{
         }else{
             return 4;
         }
-    }
-    private static String generateName() {
-        Random rand = new Random();
-        String[] lettres = {"D", "T", "A"};
-        String lettre = lettres[rand.nextInt(3)];
-        String name = lettre + String.valueOf((char)(rand.nextInt(26)+65)) + String.format("%02d", rand.nextInt(30));
-        return name;
     }
 
 }
