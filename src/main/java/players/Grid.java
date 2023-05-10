@@ -28,9 +28,8 @@ public class Grid {
     public boolean isGridVisible(){
         int line=0;
         int column;
-        boolean visible=true;
+        boolean visible;
         // we use a while loop because it permits to stop browsing at the time we find a hiden card
-
         do{
             column=0;
             do{

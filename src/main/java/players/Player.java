@@ -3,9 +3,9 @@ package players;
 import cards.UV;
 
 public class Player {
-    final private Student data;
-    private Grid grid;
-    private Quotas quotas;
+    private final Student data;
+    private final Grid grid;
+    private final Quotas quotas;
 
     public Player(String pseudo){
         this.data=new Student(pseudo);
@@ -54,7 +54,7 @@ public class Player {
         }
     }
     public String toString() {
-        return data+"\n"+getQuotas().toString();
+        return data+getQuotas().toString();
     }
     public void displayHand(){
         System.out.println("\nPlayer : "+ this);

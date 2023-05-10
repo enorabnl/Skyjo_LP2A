@@ -14,10 +14,10 @@ public class DiscardPile extends CardsPile{
         if (!uv.isVisible()){
             uv.makeVisible();
         }
-        getListOfCard().add(uv);
+        getListOfCard().add(0,uv);
     }
     public String toString(){
-        return "\nDiscard : "+getListOfCard().get(getListOfCard().size()-1)+"\n";
+        return "\nDiscard : "+getListOfCard().get(0)+"\n";
     }
 
 }

@@ -1,9 +1,6 @@
 package cards;
-import players.Grid;
-import players.Player;
 
 import java.util.ArrayList;
-import java.util.ListIterator;
 import java.util.Random;
 
 public class CardsPile {
@@ -21,7 +18,6 @@ public class CardsPile {
             listOfCard.add(new EC());
         }
     }
-
     public ArrayList<UV> getListOfCard() {
         return listOfCard;
     }
@@ -30,10 +26,9 @@ public class CardsPile {
      * @brief this method mix the pile by adding randomly each card of the initial pile to a new one
      */
     public void mixPile(){
-        ArrayList<UV> newListOfCards=new ArrayList<UV>();
+        ArrayList<UV> newListOfCards=new ArrayList<>();
         Random rand=new Random();
         int position;
-
         while(listOfCard.size()>0){
             position=rand.nextInt(listOfCard.size());
             newListOfCards.add(listOfCard.get(position));
@@ -47,8 +42,8 @@ public class CardsPile {
      * @return the drawn UV
      */
     public UV drawACard(){
-        UV topCard=listOfCard.get(listOfCard.size()-1);
-        listOfCard.remove(listOfCard.get(listOfCard.size()-1));
+        UV topCard=listOfCard.get(0);
+        listOfCard.remove(0);
         return topCard;
     }
 
