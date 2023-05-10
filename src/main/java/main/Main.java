@@ -1,11 +1,11 @@
 package main;
 
-import skyjo.SetUp;
+import skyjo.Game;
 
 public class Main {
     public static void main(String[] args) {
-        SetUp game=new SetUp();
-        game.start();
+        Game game=new Game();
+        game.play();
 
     }
 

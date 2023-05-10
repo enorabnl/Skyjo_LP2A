@@ -29,7 +29,7 @@ public class Grid {
         int line=0;
         int column;
         boolean visible=true;
-        // we use a while loop because it permits to stop broswing at the time we find a hiden card
+        // we use a while loop because it permits to stop browsing at the time we find a hiden card
 
         do{
             column=0;
@@ -41,10 +41,6 @@ public class Grid {
         }while(line<3 && visible);
         return visible;
     }
-    public UV getCardWithPosition(int line, int column){
-        return getGrid()[line][column];
-    }
-
     /**
      * @brief exchange a card from the gird at a given position (line, column) with a card from a pile
      * "cardToDeck permits to store the card from the grid we want to throw

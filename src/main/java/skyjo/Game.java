@@ -10,33 +10,27 @@ import players.Player;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class SetUp {
+public class Game {
     private int numberOfPlayers;
-    private ArrayList<Player> listOfPlayers;
-    private final CardsPile deck;//not going to change after run time
-    private DiscardPile discard=new DiscardPile();
+    private final ArrayList<Player> listOfPlayers;
+    private final CardsPile deck;
+    private final DiscardPile discard;
     private Player currentPlayer;
 
-
-    // CONTRUCTORS
-    public SetUp(){
+    public Game(){
         Scanner scanner = new Scanner(System.in);
-        this.deck=new CardsPile();
+        listOfPlayers=new ArrayList<>();
+        deck=new CardsPile();
+        discard=new DiscardPile();
         deck.mixPile();
-        this.listOfPlayers=new ArrayList<Player>();
-        int nbPlayers=0;
-        CardsPile discard=new DiscardPile();
-
         do{
             System.out.println("How many players ? (2 to 8 players)");
-            nbPlayers=scanner.nextInt();
-            this.numberOfPlayers=nbPlayers;
-        }while (nbPlayers<2 || nbPlayers>8);
+            setNumberOfPlayers(scanner.nextInt());
+        }while (getNumberOfPlayers()<2 || getNumberOfPlayers()>8);
 
         for(int i=0;i<numberOfPlayers;i++){
             System.out.println("Enter the name of the player n°"+(i+1)+" (Be carefull, only one word is required) :");
-            String playerName= scanner.next();
-            listOfPlayers.add(new Player(playerName));
+            listOfPlayers.add(new Player(scanner.next()));
         }
         currentPlayer=getListOfPlayers().get(0);
     }
@@ -52,12 +46,10 @@ public class SetUp {
     public ArrayList<Player> getListOfPlayers() {
         return listOfPlayers;
     }
-    public void setListOfPlayers(ArrayList<Player> listOfPlayers) {
-        this.listOfPlayers = listOfPlayers;
-    }
-    public CardsPile getPile() {
+    public CardsPile getDeck() {
         return deck;
     }
+    public DiscardPile getDiscard() {return discard;}
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
@@ -65,9 +57,9 @@ public class SetUp {
         currentPlayer=p;
     }
 
-    public void start(){
+    public void play(){
         distributeCards();
-        discard.addCard(getPile().drawACard());
+        discard.addCard(getDeck().drawACard());
         displayHands();
         int i =0;
         do{
@@ -90,7 +82,6 @@ public class SetUp {
     // METHODS----------------------------------(display)
     public void displayHands(){
         for (Player p:listOfPlayers) {
-            Grid grid=p.getGrid();
             p.displayHand();
             System.out.println("\n");
         }
@@ -100,34 +91,21 @@ public class SetUp {
         for (Player p:listOfPlayers) {
             p.getGrid().makeTheGridVisible();
             p.displayHand();
-            displayWinners();
         }
+        displayWinners();
     }
     public void displayWinners(){
         if(findWinners().size()>1){
             System.out.println("The winners are : ");
         }else{
-            System.out.println("The winners is : ");
+            System.out.println("The winner is : ");
         }
         for (Player p:findWinners()) {
             System.out.println(p.getData().toString());
         }
     }
     //----------------------------------------------------
-    public ArrayList<Player> findWinners(){
-        Player winner=listOfPlayers.get(0);
-        ArrayList<Player> listOfWinner=new ArrayList<>();
-        for (int i=1;i<listOfPlayers.size();i++){
-            int total=listOfPlayers.get(i).getQuotas().getTotal();
-            if(winner.getQuotas().getTotal()<total){
-                winner=listOfPlayers.get(i);
-            } else if (winner.getQuotas().getTotal()==total) {
-                listOfWinner.add(listOfPlayers.get(i));
-            }
-        }
-        listOfPlayers.add(winner);
-        return listOfWinner;
-    }
+
     public void distributeCards(){
         for(Player p: listOfPlayers){
             Grid grid=p.getGrid();
@@ -146,7 +124,7 @@ public class SetUp {
             Grid grid=getListOfPlayers().get(i).getGrid();
             visible=grid.isGridVisible();
             i++;
-        }while (!visible && i<getListOfPlayers().size());
+        }while (visible && i<getListOfPlayers().size());
         return visible;
     }
     public void chooseAction(){
@@ -165,7 +143,7 @@ public class SetUp {
     }
     public void drawInDeck(){
         Scanner scanner=new Scanner(System.in);
-        int choice=0;
+        int choice;
         UV drawnCard=deck.drawACard();
         drawnCard.makeVisible();
         System.out.println("Drawn card : "+drawnCard);
@@ -192,8 +170,8 @@ public class SetUp {
         discard.addCard(currentPlayer.getGrid().swapCardsGrid(card,chooseACard()));
     }
     public void makeACardVisible(){
-        System.out.println("You chose to turn over a card of your grid");
-        Coordinates coordinate=new Coordinates(chooseACard().getLine(), chooseACard().getColumn());
+        System.out.println("You have to turn over a card of your grid");
+        Coordinates coordinate=chooseACard();
 
         while(currentPlayer.getGrid().getGrid()[coordinate.getLine()][coordinate.getColumn()].isVisible()){
             System.out.println("This card is already visible, enter new coordinates");
@@ -215,5 +193,18 @@ public class SetUp {
         }while(column<1 || column>4);
         return new Coordinates(line-1,column-1);
     }
-    
+    public ArrayList<Player> findWinners(){
+        Player winner=listOfPlayers.get(0);
+        ArrayList<Player> listOfWinner=new ArrayList<>();
+        for (int i=1;i<listOfPlayers.size();i++){
+            int total=listOfPlayers.get(i).getQuotas().getTotal();
+            if(winner.getQuotas().getTotal()<total){
+                winner=listOfPlayers.get(i);
+            } else if (winner.getQuotas().getTotal()==total) {
+                listOfWinner.add(listOfPlayers.get(i));
+            }
+        }
+        listOfPlayers.add(winner);
+        return listOfWinner;
+    }
 }
