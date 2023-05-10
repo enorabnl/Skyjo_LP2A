@@ -1,23 +1,17 @@
 package players;
 
 import cards.Coordinates;
-import cards.TM;
 import cards.UV;
 
 public class Grid {
     UV[][] grid=new UV[3][4];
-
-
     public UV[][] getGrid() {
         return grid;
-    }
-    public void makeACardVisible(int line, int column){
-        grid[line][column].makeVisible();
     }
     public void makeTheGridVisible(){
         for(int i=0;i<3;i++){
             for(int j=0;j<4;j++){
-                makeACardVisible(i,j);
+                getGrid()[i][j].makeVisible();
             }
         }
     }

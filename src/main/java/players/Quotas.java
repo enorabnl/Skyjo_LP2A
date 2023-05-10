@@ -13,12 +13,6 @@ public class Quotas {
         this.T2SCredits=0;
 
     }
-    public Quotas(int CS,int TM, int EC, int T2S){
-        this.CSCredits=CS;
-        this.TMCredits=TM;
-        this.ECCredits=EC;
-        this.T2SCredits=T2S;
-    }
     public int getCSCredits() {
         return CSCredits;
     }

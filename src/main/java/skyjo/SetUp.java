@@ -140,7 +140,7 @@ public class SetUp {
     }
     
     public boolean isAGridVisible(){
-        boolean visible=false;
+        boolean visible;
         int i=0;
         do{
             Grid grid=getListOfPlayers().get(i).getGrid();
