@@ -68,10 +68,8 @@ public class Game {
         }
     }
     public void play(){
-        currentPlayer=getListOfPlayers().get(0);
         deck.mixPile();
         distributeCards();
-        discard.addCard(getDeck().drawACard());
         displayHands();
         int i =0;
         do{
@@ -124,6 +122,7 @@ public class Game {
                 }
             }
         }
+        discard.addCard(getDeck().drawACard());
     }
     public boolean noGridVisible(){
         boolean visible;
@@ -133,7 +132,7 @@ public class Game {
             visible=grid.isGridVisible();
             i++;
         }while (!visible && i<getListOfPlayers().size());
-        return visible;
+        return !visible;
     }
     public void chooseAction(){
         Scanner scanner = new Scanner(System.in);

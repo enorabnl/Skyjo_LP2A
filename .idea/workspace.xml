@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b41972c1-b2b5-4ecf-9ec7-dd12f156f1f3" name="Changes" comment="set up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/CardsPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/CardsPile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/DiscardPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/DiscardPile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/players/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/players/Grid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/players/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/skyjo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/skyjo/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/skyjo/Play.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +88,8 @@
       <workItem from="1682411135684" duration="894000" />
       <workItem from="1682412382522" duration="571000" />
       <workItem from="1683468602497" duration="6031000" />
-      <workItem from="1683717093639" duration="13469000" />
+      <workItem from="1683717093639" duration="13498000" />
+      <workItem from="1683788793334" duration="1500000" />
     </task>
     <servers />
   </component>
