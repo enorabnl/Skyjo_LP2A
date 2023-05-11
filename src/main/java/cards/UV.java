@@ -10,9 +10,9 @@ public class UV {
         this.credits=credits;
         this.visible=false;
     }
-    public String getName() {
+    /*public String getName() {
         return this.name;
-    }
+    }*/
     public int getCredits () {
         return this.credits;
     }
@@ -22,10 +22,12 @@ public class UV {
     public void makeVisible() {
         this.visible=true;
     }
-
+    public void hide() {
+        this.visible=false;
+    }
     public String toString() {
         if(isVisible()){
-            return this.getName()+" ("+getCredits()+" "+this.getClass().getSimpleName()+")";
+            return this.name+" ("+credits+" "+this.getClass().getSimpleName()+")";
         }else{
             return "XXXX";
         }

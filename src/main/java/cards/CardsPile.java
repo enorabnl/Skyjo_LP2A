@@ -46,6 +46,4 @@ public class CardsPile {
         listOfCard.remove(0);
         return topCard;
     }
-
-
 }

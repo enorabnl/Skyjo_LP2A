@@ -11,13 +11,13 @@ public class Grid {
     public void makeTheGridVisible(){
         for(int i=0;i<3;i++){
             for(int j=0;j<4;j++){
-                getGrid()[i][j].makeVisible();
+                grid[i][j].makeVisible();
             }
         }
     }
     public void displayGrid(){
         for(int line=0;line<3;line++){
-            System.out.println("| "+getGrid()[line][0].toString()+" | "+getGrid()[line][1].toString()+" | "+getGrid()[line][2].toString()+" | "+getGrid()[line][3].toString()+"|");
+            System.out.println("| "+grid[line][0].toString()+" | "+grid[line][1].toString()+" | "+grid[line][2].toString()+" | "+grid[line][3].toString()+"|");
         }
     }
 
@@ -33,7 +33,7 @@ public class Grid {
         do{
             column=0;
             do{
-                visible=getGrid()[line][column].isVisible();
+                visible=grid[line][column].isVisible();
                 column++;
             }while(column<4 && visible);
             line++;
@@ -48,10 +48,9 @@ public class Grid {
      * @return the UV which is going to deck
      */
     public UV swapCardsGrid(UV cardsFromPile, Coordinates position){
-        UV cardToDeck=getGrid()[position.getLine()-1][position.getColumn()-1];
-        getGrid()[position.getLine()-1][position.getColumn()-1]=cardsFromPile;
+        UV cardToDeck=grid[position.getLine()-1][position.getColumn()-1];
+        grid[position.getLine()-1][position.getColumn()-1]=cardsFromPile;
         return cardToDeck;
-
     }
 
 

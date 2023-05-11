@@ -11,7 +11,6 @@ public class Quotas {
         this.TMCredits=0;
         this.ECCredits=0;
         this.T2SCredits=0;
-
     }
     public int getCSCredits() {
         return CSCredits;

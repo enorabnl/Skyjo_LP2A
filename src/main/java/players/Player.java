@@ -24,27 +24,27 @@ public class Player {
     public void setQuotas() {
         for(int i=0;i<3;i++){
             for(int j=0;j<4;j++){
-                UV card=getGrid().getGrid()[i][j];
+                UV card=grid.getGrid()[i][j];
                 int credits= card.getCredits();
                 switch (card.getClass().getSimpleName()) {
                     case "CS" -> {
                         if (card.isVisible()) {
-                            getQuotas().setCSCredits(getQuotas().getCSCredits() + credits);
+                            quotas.setCSCredits(quotas.getCSCredits() + credits);
                         }
                     }
                     case "TM" -> {
                         if (card.isVisible()) {
-                            getQuotas().setTMCredits(getQuotas().getTMCredits() + credits);
+                            quotas.setTMCredits(quotas.getTMCredits() + credits);
                         }
                     }
                     case "EC" -> {
                         if (card.isVisible()) {
-                            getQuotas().setECCredits(getQuotas().getECCredits() + credits);
+                            quotas.setECCredits(quotas.getECCredits() + credits);
                         }
                     }
                     case "T2S" -> {
                         if (card.isVisible()) {
-                            getQuotas().setT2SCredits(getQuotas().getT2SCredits() + credits);
+                            quotas.setT2SCredits(quotas.getT2SCredits() + credits);
                         }
                     }
                     default -> {
@@ -54,10 +54,10 @@ public class Player {
         }
     }
     public String toString() {
-        return data+getQuotas().toString();
+        return data+quotas.toString();
     }
     public void displayHand(){
         System.out.println("\nPlayer : "+ this);
-        getGrid().displayGrid();
+        grid.displayGrid();
     }
 }

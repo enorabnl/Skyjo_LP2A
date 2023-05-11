@@ -5,7 +5,6 @@ public class DiscardPile extends CardsPile{
     public DiscardPile(){
         super();
     }
-
     /**
      *
      * @param uv to add to the discard
