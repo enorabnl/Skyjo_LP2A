@@ -11,7 +11,7 @@ public class TM extends UV{
     }
 
     /**
-     * Generate a name while respecting some conventions
+     * @brief Generate a name while respecting some conventions
      * @return the name which has been generated
      */
     private static String generateName() {
@@ -28,6 +28,7 @@ public class TM extends UV{
         return letter + (char) (rand.nextInt(26) + 65) + String.format("%02d", rand.nextInt(30));
     }
     /**
+     * @brief Generate a number of credits
      * generate an integer randomly between 0 and 1
      * if it is 0 : the number of credits is equals to 6
      * if it is 1 : the number of credits is equals to 4

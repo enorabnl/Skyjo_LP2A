@@ -32,13 +32,13 @@ public class UV {
     }
 
     /**
-     * This method permits to make a card visible
+     * @brief This method permits to make a card visible
      */
     public void makeVisible() {
         this.visible=true;
     }
     /**
-     * This method permits to make a card not visible
+     * @brief This method permits to make a card not visible
      */
     public void hide() {
         this.visible=false;

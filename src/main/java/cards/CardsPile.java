@@ -43,7 +43,7 @@ public class CardsPile {
     }
 
     /**
-     *This method draws the top card of the pile
+     * @brief This method draws the top card of the pile
      * @return the drawn UV / the top card of the pile
      */
     public UV drawACard(){

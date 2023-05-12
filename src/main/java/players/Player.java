@@ -7,20 +7,43 @@ public class Player {
     private final Grid grid;
     private final Quotas quotas;
 
+    /**
+     * Creates a new player with the specified pseudo, initializes their student data, grid, and quotas.
+     * @param pseudo the player's pseudo
+     */
     public Player(String pseudo){
         this.data=new Student(pseudo);
         this.grid=new Grid();
         this.quotas=new Quotas();
     }
+
+    /**
+     * Returns the player's grid.
+     * @return the player's grid
+     */
     public Grid getGrid() {
         return grid;
     }
+
+    /**
+     * Returns the player's student data.
+     * @return the player's student data
+     */
     public Student getData() {
         return data;
     }
+
+    /**
+     * Returns the player's quotas.
+     * @return the player's quotas
+     */
     public Quotas getQuotas() {
         return quotas;
     }
+
+    /**
+     * Calculates the player's quotas based on the credits of the UVs in their grid.
+     */
     public void setQuotas() {
         for(int i=0;i<3;i++){
             for(int j=0;j<4;j++){
@@ -53,9 +76,18 @@ public class Player {
             }
         }
     }
+
+    /**
+     * Returns a string representation of the player's data and quotas.
+     * @return a string representation of the player's data and quotas
+     */
     public String toString() {
         return data+quotas.toString();
     }
+
+    /**
+     * Displays the player's grid and data.
+     */
     public void displayHand(){
         System.out.println("\nPlayer : "+ this);
         grid.displayGrid();

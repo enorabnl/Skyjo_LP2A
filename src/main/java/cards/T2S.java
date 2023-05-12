@@ -12,7 +12,7 @@ public class T2S extends UV{
     }
 
     /**
-     * Generate a name while respecting some conventions
+     * @brief Generate a name while respecting some conventions
      * @return the name which has been generated
      */
     private static String generateName() {
@@ -26,7 +26,7 @@ public class T2S extends UV{
         return "HI" + String.format("%02d", rand.nextInt(30));
     }
     /**
-     * generate an integer randomly between 1 and 4
+     * @brief Generate an integer randomly between 1 and 4
      * @return a number of credits
      */
     private static int generateCredits(){

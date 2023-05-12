@@ -2,12 +2,16 @@ package cards;
 import java.util.Random;
 
 public class CS extends UV{
+    /**
+     * Call the super type constructor
+     * We use the generateName()method as String argument and 6 as integer argument
+     */
     public CS(){
         super(generateName(),6);
     }
 
     /**
-     * Generate a name while respecting some conventions
+     * @brief Generate a name while respecting some conventions
      * @return the name which has been generated
      */
     private static String generateName() {

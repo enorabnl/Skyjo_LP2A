@@ -5,7 +5,6 @@ public class Coordinates {
     private final int column;
 
     /**
-     *
      * @param l is the line coordinate
      * @param c is the column coordinate
      */

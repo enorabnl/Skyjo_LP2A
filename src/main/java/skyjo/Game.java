@@ -49,25 +49,25 @@ public class Game {
     private void drawInDeck(){
         Scanner scanner=new Scanner(System.in);
         int choice;
-        UV drawnCard=deck.drawACard();
-        drawnCard.makeVisible();
-        System.out.println("Drawn card : "+drawnCard);
+        UV drewnCard=deck.drawACard();
+        drewnCard.makeVisible();
+        System.out.println("Drewn card : "+drewnCard);
         do{
             System.out.println("Possible actions :\nThrow the card (Enter 1)\nReplace a card of your grid (Enter 2)");
             choice=scanner.nextInt();
         }while(choice!=1 && choice!=2);
         if(choice==1){
-            discard.addCard(drawnCard);
+            discard.addCard(drewnCard);
             makeACardVisible();
         }else {
-            replaceACard(drawnCard);
+            replaceACard(drewnCard);
         }
     }
     private void drawInDiscard(){
-        UV drawnCard=discard.drawACard();
-        drawnCard.makeVisible();
-        System.out.println("You drawn : " + drawnCard);
-        replaceACard(drawnCard);
+        UV drewnCard=discard.drawACard();
+        drewnCard.makeVisible();
+        System.out.println("You drewn : " + drewnCard);
+        replaceACard(drewnCard);
     }
     private void replaceACard( UV card){
         System.out.println("You have to replace a card of your grid.");
