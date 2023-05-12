@@ -185,9 +185,7 @@ public class Game {
             listOfPlayers.add(new Player(scanner.next()));
         }
     }
-
-
-    public void play(){
+    private void play(){
         putCardsBackToDeck();
         deck.mixPile();
         distributeCards();

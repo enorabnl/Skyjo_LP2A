@@ -7,7 +7,7 @@ public class CardsPile {
     private ArrayList<UV> listOfCard;
 
     /**
-     * @brief the default constructor generate 152 cards with the quantity of each category
+     * @brief the default constructor generate 152 cards with the same quantity of each category
      */
     public CardsPile(){
         this.listOfCard= new ArrayList<>();
@@ -29,7 +29,12 @@ public class CardsPile {
         ArrayList<UV> newListOfCards=new ArrayList<>();
         Random rand=new Random();
         int position;
-        while(listOfCard.size()>0){
+        /*
+        The mixed pile is a new pile.
+        Each element that is added to that new pile is removed from the initial one.
+        We do this operation until the initial pile is not empty.
+         */
+        while(!listOfCard.isEmpty()){
             position=rand.nextInt(listOfCard.size());
             newListOfCards.add(listOfCard.get(position));
             listOfCard.remove(listOfCard.get(position));
@@ -38,8 +43,8 @@ public class CardsPile {
     }
 
     /**
-     *
-     * @return the drawn UV
+     *This method draws the top card of the pile
+     * @return the drawn UV / the top card of the pile
      */
     public UV drawACard(){
         UV topCard=listOfCard.get(0);

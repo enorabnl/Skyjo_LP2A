@@ -12,6 +12,13 @@ public class CS extends UV{
      */
     private static String generateName() {
         Random rand = new Random();
+        /*
+        Choose randomly a letter in the letters array
+        Choose randomly a letter in the alphabet
+        Generate a random number between 0 and 29
+        "%02d" specifies that the integer should be formatted with a minimum width of 2 characters
+        and that if the integer has less than 2 digits, leading zeros should be added to make it two digits long
+         */
         String[] letters = {"M", "P", "R"};
         String letter = letters[rand.nextInt(3)];
         return letter + (char) (rand.nextInt(26) + 65) + String.format("%02d", rand.nextInt(30));
