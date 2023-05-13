@@ -62,8 +62,8 @@ public class Grid {
      * @return the UV which is going to deck
      */
     public UV swapCardsGrid(UV cardsFromPile, Coordinates position){
-        UV cardToDeck=grid[position.getLine()-1][position.getColumn()-1];
-        grid[position.getLine()-1][position.getColumn()-1]=cardsFromPile;
+        UV cardToDeck=grid[position.getLine()][position.getColumn()];
+        grid[position.getLine()][position.getColumn()]=cardsFromPile;
         return cardToDeck;
     }
 }

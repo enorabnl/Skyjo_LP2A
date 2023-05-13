@@ -35,11 +35,12 @@ public class Game {
     public void chooseAction(){
         Scanner scanner = new Scanner(System.in);
         int choice;
+        System.out.println("--------------------");
         do{
-            System.out.println("\nPossible actions :\nDraw in the deck (Enter 1)\nDraw in the discard (Enter 2)");
+            System.out.println("Possible actions :\nDraw in the deck (Enter 1)\nDraw in the discard (Enter 2)");
             choice=scanner.nextInt();
         }while(choice!=1 && choice!=2);
-
+        System.out.println("--------------------");
         if(choice==1){
             drawInDeck();
         }else{
@@ -49,35 +50,40 @@ public class Game {
     private void drawInDeck(){
         Scanner scanner=new Scanner(System.in);
         int choice;
-        UV drewnCard=deck.drawACard();
-        drewnCard.makeVisible();
-        System.out.println("Drewn card : "+drewnCard);
+        UV drewCard=deck.drawACard();
+        drewCard.makeVisible();
+        System.out.println("--> You drew : "+drewCard);
+        System.out.println("--------------------");
         do{
             System.out.println("Possible actions :\nThrow the card (Enter 1)\nReplace a card of your grid (Enter 2)");
             choice=scanner.nextInt();
         }while(choice!=1 && choice!=2);
+        System.out.println("--------------------");
+
         if(choice==1){
-            discard.addCard(drewnCard);
+            discard.addCard(drewCard);
             makeACardVisible();
         }else {
-            replaceACard(drewnCard);
+            replaceACard(drewCard);
         }
     }
     private void drawInDiscard(){
-        UV drewnCard=discard.drawACard();
-        drewnCard.makeVisible();
-        System.out.println("You drewn : " + drewnCard);
-        replaceACard(drewnCard);
+        UV drewCard=discard.drawACard();
+        drewCard.makeVisible();
+        System.out.println("--> You drew : " + drewCard);
+        replaceACard(drewCard);
     }
     private void replaceACard( UV card){
-        System.out.println("You have to replace a card of your grid.");
+        System.out.println("--> You have to replace a card of your grid");
+        currentPlayer.displayHand();
         discard.addCard(currentPlayer.getGrid().swapCardsGrid(card,chooseACard()));
     }
     private void makeACardVisible(){
-        System.out.println("You have to turn over a card of your grid");
+        System.out.println("--> You have to turn over a card of your grid");
+        currentPlayer.displayHand();
         Coordinates coordinate=chooseACard();
         while(currentPlayer.getGrid().getGrid()[coordinate.getLine()][coordinate.getColumn()].isVisible()){
-            System.out.println("This card is already visible, enter new coordinates");
+            System.out.println("WARNING : This card is already visible, enter new coordinates !");
             coordinate=chooseACard();
         }
         currentPlayer.getGrid().getGrid()[coordinate.getLine()][coordinate.getColumn()].makeVisible();
@@ -86,6 +92,7 @@ public class Game {
         Scanner scanner=new Scanner(System.in);
         int line;
         int column;
+        System.out.println("--------------------");
         do{
             System.out.println("Enter the line of this card :");
             line= scanner.nextInt();
@@ -94,6 +101,7 @@ public class Game {
             System.out.println("Enter the column of this card :");
             column= scanner.nextInt();
         }while(column<1 || column>4);
+        System.out.println("--------------------");
         return new Coordinates(line-1,column-1);
     }
 
@@ -107,7 +115,7 @@ public class Game {
         }
     }
     private void displayEnd(){
-        System.out.println("----------The game is done !----------\n");
+        System.out.println("--------------------\nThe game is done !\n--------------------");
         for (Player p:listOfPlayers) {
             p.getGrid().makeTheGridVisible();
             p.displayHand();
@@ -116,13 +124,15 @@ public class Game {
     }
     private void displayWinners(){
         if(findWinners().size()>1){
-            System.out.println("The winners are : ");
+            System.out.println("--------------------\nThe winners are : ");
         }else{
-            System.out.println("The winner is : ");
+            System.out.println("--------------------\nThe winner is : ");
         }
         for (Player p:findWinners()) {
             System.out.println(p.getData().toString());
         }
+        System.out.println("--------------------");
+
     }
 
     /*
@@ -167,7 +177,8 @@ public class Game {
     }
     private void putCardsBackToDeck(){
         if(!discard.getListOfCard().isEmpty()){
-            for (UV card:discard.getListOfCard()) {
+            for(int i=0;i<discard.getListOfCard().size();i++){
+                UV card=discard.getListOfCard().get(i);
                 card.hide();
                 deck.getListOfCard().add(card);
                 discard.getListOfCard().remove(card);
@@ -176,6 +187,8 @@ public class Game {
     }
     private void newPlayers(){
         Scanner scanner = new Scanner(System.in);
+        listOfPlayers.clear();
+        System.out.println("--------------------\nCreation of a game:");
         do{
             System.out.println("How many players ? (2 to 8 players)");
             setNumberOfPlayers(scanner.nextInt());
@@ -184,6 +197,7 @@ public class Game {
             System.out.println("Enter the name of the player n°"+(i+1)+" (Be carefull, only one word is required) :");
             listOfPlayers.add(new Player(scanner.next()));
         }
+        System.out.println("--------------------");
     }
     private void play(){
         putCardsBackToDeck();
@@ -193,13 +207,15 @@ public class Game {
         int i =0;
         do{
             setCurrentPlayer(listOfPlayers.get(i));
-            System.out.println(currentPlayer.getData().getPseudo()+", it's your turn!");
+            System.out.println("--------------------\n"+currentPlayer.getData().getPseudo()+", it's your turn!");
             currentPlayer.displayHand();
             System.out.println(discard);
             chooseAction();
             currentPlayer.setQuotas();
-            System.out.println("New grid-------------------");
+            System.out.println("--------------------\nNew grid:");
             currentPlayer.displayHand();
+            System.out.println("--------------------");
+
             if(i== listOfPlayers.size()-1){
                 i=0;
             }else{
@@ -216,10 +232,12 @@ public class Game {
                 newPlayers();
             }
             play();
+            System.out.println("--------------------");
             do{
                 System.out.println("Are you done playing ? (Enter 1)\nDo you want play again with the same players ? (Enter 2)\nDo you want to play again, btu with different players ? (Enter 3)\n");
                 playAgain=scanner.nextInt();
             }while(playAgain<1 || playAgain>3);
+            System.out.println("--------------------");
         }while(playAgain!=1);
     }
 }

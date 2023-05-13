@@ -45,6 +45,11 @@ public class Player {
      * Calculates the player's quotas based on the credits of the UVs in their grid.
      */
     public void setQuotas() {
+        quotas.setCSCredits(0);
+        quotas.setTMCredits(0);
+        quotas.setECCredits(0);
+        quotas.setT2SCredits(0);
+
         for(int i=0;i<3;i++){
             for(int j=0;j<4;j++){
                 UV card=grid.getGrid()[i][j];
@@ -89,7 +94,7 @@ public class Player {
      * Displays the player's grid and data.
      */
     public void displayHand(){
-        System.out.println("\nPlayer : "+ this);
+        System.out.println("Player : "+ this);
         grid.displayGrid();
     }
 }

@@ -28,7 +28,7 @@ public class DiscardPile extends CardsPile{
      * @return a String which contains the first card of the pile
      */
     public String toString(){
-        return "\nDiscard : "+getListOfCard().get(0)+"\n";
+        return "Discard : "+getListOfCard().get(0);
     }
 
 }

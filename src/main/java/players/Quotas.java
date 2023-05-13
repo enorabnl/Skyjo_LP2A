@@ -40,6 +40,6 @@ public class Quotas {
         return CSCredits+TMCredits+ECCredits+T2SCredits;
     }
     public String toString() {
-        return "Quotas : \nTS : "+CSCredits+", TM : "+TMCredits+", EC : "+ECCredits+", T2S : "+T2SCredits+", Total :"+getTotal();
+        return "Quotas : \nCS : "+CSCredits+", TM : "+TMCredits+", EC : "+ECCredits+", T2S : "+T2SCredits+", Total :"+getTotal();
     }
 }

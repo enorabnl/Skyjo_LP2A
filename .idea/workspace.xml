@@ -6,16 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b41972c1-b2b5-4ecf-9ec7-dd12f156f1f3" name="Changes" comment="set up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/CS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/CS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/CardsPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/CardsPile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/Coordinates.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cards/DiscardPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/DiscardPile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/EC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/EC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/T2S.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/T2S.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/TM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/TM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cards/UV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cards/UV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/players/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/players/Grid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/players/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/players/Quotas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/players/Quotas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/skyjo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/skyjo/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +94,8 @@
       <workItem from="1682412382522" duration="571000" />
       <workItem from="1683468602497" duration="6031000" />
       <workItem from="1683717093639" duration="13498000" />
-      <workItem from="1683788793334" duration="14451000" />
+      <workItem from="1683788793334" duration="14925000" />
+      <workItem from="1683979033798" duration="6151000" />
     </task>
     <servers />
   </component>
